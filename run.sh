@@ -30,6 +30,48 @@ else
 fi
 
 #install poverlevel10k theme
+#---------------------------
+SYSTEM_FONT_PATH="/Library/Fonts"
+cat <<- EOF
+# Installing Poverlevel10k Theme #
+==================================
+
+# installing fonts #
+====================
+Searching for fonts in system font path: $SYSTEM_FONT_PATH
+
+EOF
+
+# Install fonts
+for FONT_PATH in ./fonts/*.ttf; do
+    FONT_NAME=$(basename "$FONT_PATH")
+    if [ -e "$SYSTEM_FONT_PATH/$FONT_NAME" ]; then
+        echo "Font: $FONT_NAME exists" 
+    else
+        echo "Font $FONT_NAME not found in system font path. Installing to $SYSTEM_FONT_PATH/$FONT_NAME"
+        cp "$FONT_PATH" "$SYSTEM_FONT_PATH/$FONT_NAME" 
+        echo ""    
+    fi
+done
+
+cat <<- EOF
+
+# Installing theme #
+====================
+
+Checking for existenxct of the theme #
+======================================
+
+EOF
+if [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+    echo "Theme poverlevel10k exists in ~/.oh-my-zsh/custom/themes/powerlevel10k"
+    echo ""
+else
+    echo "Theme poverlevel10k does not exists"
+    echo '==================================='
+    echo 'Installing theme with: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k'
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 
 
 echo "Creating \`.custom-system-config\` file"
