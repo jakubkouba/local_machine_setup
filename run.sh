@@ -108,3 +108,16 @@ if [ $? -eq 0 ]; then
 else
     echo "Ruby is not installed"
 fi
+
+cat <<- EOF
+
+# Gongratulations local environment setup finished #
+====================================================
+
+# Further instructions #
+========================
+
+For Visual Studio Code editor configuration go to the Preferences and
+insert following terminal.integrated.fontFamily to the search field.
+Enter MesloLGS NF to the input field
+EOF
