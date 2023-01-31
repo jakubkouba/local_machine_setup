@@ -91,6 +91,31 @@ else
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
+cat <<- EOF
+# Installing Oh My ZSH plugins #
+================================
+
+# Autocomplete #
+================
+
+EOF
+
+# check if the autocomplete
+ZSH_PLUGIN_FOLDER="$HOME/.oh-my-zsh/custom/plugins"
+if [ -d "$ZSH_PLUGIN_FOLDER/zsh-autosuggestions" ]; then
+    echo 'autocomplete program installed. All good'
+else
+    echo 'autocomplete program not installed'
+    echo 'Installing autocomplete program with: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+cat <<- EOF
+
+# Autocomplete program installation finished #
+==============================================
+
+EOF
 
 echo "Creating \`.custom-system-config\` file"
 if [ -e ~/.custom-system-config ]; then
