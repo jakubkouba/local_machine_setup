@@ -29,6 +29,24 @@ else
     echo "######################"
 fi
 
+# Install BAT
+cat <<- EOF
+# Installing bat (cat extension) #
+==================================
+
+EOF
+
+# test if bat is installed
+which bat &>/dev/null
+if [ $? -eq 0 ]; then
+    echo 'bat program already installed. All good'
+else
+    echo 'Program bat not installed'
+    echo 'Installing bat with: brew install bat'
+    brew install bat
+fi
+echo ''
+
 #install poverlevel10k theme
 #---------------------------
 SYSTEM_FONT_PATH="/Library/Fonts"
