@@ -189,14 +189,18 @@ else
     echo ''
 fi
 
-echo "Creating \`.custom-system-config\` file"
+echo '# Checking for `.custom-system-config` file'
+echo ''
+
 if [ -e ~/.custom-system-config ]; then
-    echo "~/.custom-system-config file exists"
+    echo "~/.custom-system-config file exists. All good"
+    echo ''
 else
+    echo 'creating file with: `touch ~/.custom-system-config`'
     touch ~/.custom-system-config
-    echo "#########################################"
-    echo "# ~/.custom-system-config  file created #"
-    echo "#########################################"
+    echo '# ~/.custom-system-config  file created #'
+    echo '========================================='
+    echo ''
 fi
 
 # test if ruby is installed
