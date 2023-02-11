@@ -96,8 +96,8 @@ cat <<- EOF
 # Installing theme #
 ====================
 
-Checking for existence of the theme #
-======================================
+# Checking for existence of the theme #
+=======================================
 
 EOF
 if [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
