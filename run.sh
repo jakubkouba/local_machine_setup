@@ -204,6 +204,15 @@ else
 fi
 
 # test if ruby is installed
+# if yes then install homesick gem and pull the dotfiles from git and link them to home folder
+# if homesick is not installed install and pull dotfiles and link them to the home folder
+
+cat <<- EOF
+# Checking for Homesick (dotfile manager) #
+===========================================
+
+EOF
+
 which ruby &>/dev/null
 if [ $? -eq 0 ]; then
     homesick -v &>/dev/null
