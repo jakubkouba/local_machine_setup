@@ -1,4 +1,22 @@
 #!/bin/bash
+cat <<- EOF
+########################################################
+# This is a configuration script for new machine setup #
+########################################################
+            Copyright Jakub Adler 2023
+
+# It will check for and install following #
+===========================================
+- RVM & install newest ruby version
+- Oh-my-zsh framework
+- Powerlevel10k zsh theme
+- Comandline tools
+    - bat (cat improved)
+    - fzf (fuzzy finder)
+
+######################################################## 
+
+EOF
 
 command_exists() {
     command "$1" &>/dev/null
