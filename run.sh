@@ -10,6 +10,7 @@ cat <<- EOF
 - RVM & install newest ruby version
 - Oh-my-zsh framework
 - Powerlevel10k zsh theme
+- Autocomplete Oh-my-zsh plugin
 - Comandline tools
     - bat (cat improved)
     - fzf (fuzzy finder)
