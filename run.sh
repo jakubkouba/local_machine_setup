@@ -104,18 +104,41 @@ EOF
 ZSH_PLUGIN_FOLDER="$HOME/.oh-my-zsh/custom/plugins"
 if [ -d "$ZSH_PLUGIN_FOLDER/zsh-autosuggestions" ]; then
     echo 'autocomplete program installed. All good'
+    echo ''
 else
     echo 'autocomplete program not installed'
     echo 'Installing autocomplete program with: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+    echo ''
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    echo ''
+    echo '# Installed successfully #'
+    echo '==========================' 
 fi
 
 cat <<- EOF
+# Installing tools via Homebrew #
+=================================
 
-# Autocomplete program installation finished #
-==============================================
+# fzf # 
+=======
 
 EOF
+
+which fzf &>/dev/null
+if [ $? -eq 0 ]; then
+    echo 'fzf program installed. All good'
+    echo ''
+else
+    echo 'fzf not installed'
+    echo 'Installing fzf program with: brew install fzf'
+    echo ""
+    brew install fzf
+    echo ""
+    echo 'Installing fzf key bindings with: `$(brew --prefix)/opt/fzf/install`'
+    echo ""
+    "$(brew --prefix)"/opt/fzf/install
+    echo ""
+fi
 
 echo "Creating \`.custom-system-config\` file"
 if [ -e ~/.custom-system-config ]; then
