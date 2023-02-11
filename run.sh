@@ -23,15 +23,24 @@ command_exists() {
 }
 
 # Install RVM
+cat <<- EOF
+# Checking RVM #
+================
+
+EOF
+
 if command_exists rvm; then
-    echo 'RVM found, no action needed'
+    echo 'RVM installed. All good'
+    echo ''
 else
     echo 'RVM not found'
     echo 'Installing RVM and ruby with: `\curl -sSL https://get.rvm.io | bash -s stable --ruby`'
+    echo ''
     \curl -sSL https://get.rvm.io | bash -s stable --ruby
-    echo "#################"
-    echo "# RVM Installed #"
-    echo "#################"
+    echo ''
+    echo '# RVM Installed #'
+    echo '================='
+    echo ''
 fi
 
 # install OhMyZSH
