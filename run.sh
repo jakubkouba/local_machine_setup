@@ -43,17 +43,26 @@ else
     echo ''
 fi
 
-# install OhMyZSH
+# install Oh-my-szh
+cat <<- EOF
+# Checking Oh-my-zsh #
+======================
+
+EOF
+
 if [ -d ~/.oh-my-zsh ]; then
-    echo "oh-my-zsh is installed"
+    echo "oh-my-zsh is installed. All good"
+    echo ''
 else
     echo "Installing OhMy ZSH with: sh -c $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    # TODO figure out how to supress pronting of the script. When trunning the following command from the script it prints out
+    echo ''
+    # TODO figure out how to supress printing of the script. When trunning the following command from the script it prints out
     # the contents of the installatio script
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    echo "######################"
-    echo "#Oh My ZSH Installed #"
-    echo "######################"
+    echo ''
+    echo '# Oh My ZSH Installed #'
+    echo '======================'
+    echo ''
 fi
 
 # Install BAT
