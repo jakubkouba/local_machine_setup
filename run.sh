@@ -65,24 +65,6 @@ else
     echo ''
 fi
 
-# Install BAT
-cat <<- EOF
-# Installing bat (cat extension) #
-==================================
-
-EOF
-
-# test if bat is installed
-which bat &>/dev/null
-if [ $? -eq 0 ]; then
-    echo 'bat program already installed. All good'
-else
-    echo 'Program bat not installed'
-    echo 'Installing bat with: brew install bat'
-    brew install bat
-fi
-echo ''
-
 #install poverlevel10k theme
 #---------------------------
 SYSTEM_FONT_PATH="/Library/Fonts"
@@ -113,7 +95,7 @@ cat <<- EOF
 # Installing theme #
 ====================
 
-Checking for existenxct of the theme #
+Checking for existence of the theme #
 ======================================
 
 EOF
@@ -147,16 +129,43 @@ else
     echo ''
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     echo ''
-    echo '# Installed successfully #'
-    echo '==========================' 
+    echo '# autocomplete installed successfully #'
+    echo '=======================================' 
 fi
 
 cat <<- EOF
 # Installing tools via Homebrew #
 =================================
 
-# fzf # 
-=======
+EOF
+
+# Install BAT
+cat <<- EOF
+# Checking for bat (cat extension) #
+==================================
+
+EOF
+
+# test if bat is installed
+which bat &>/dev/null
+if [ $? -eq 0 ]; then
+    echo 'bat program already installed. All good'
+    echo ''
+else
+    echo 'Program bat not installed'
+    echo 'Installing bat with: brew install bat'
+    echo ''
+    brew install bat
+    echo ''
+    echo '# bat installed successfully #'
+    echo '=============================='
+    echo ''
+fi
+
+# fzf
+cat <<- EOF
+# Checking for fzf (command line fuzzy finder) #
+================================================
 
 EOF
 
@@ -167,13 +176,17 @@ if [ $? -eq 0 ]; then
 else
     echo 'fzf not installed'
     echo 'Installing fzf program with: brew install fzf'
-    echo ""
+    echo ''
     brew install fzf
-    echo ""
+    echo ''
+    echo '# fzf installed successfully #'
+    echo ''
     echo 'Installing fzf key bindings with: `$(brew --prefix)/opt/fzf/install`'
-    echo ""
+    echo ''
     "$(brew --prefix)"/opt/fzf/install
-    echo ""
+    echo ''
+    echo '# fzf key bindings installed successfully #'
+    echo ''
 fi
 
 echo "Creating \`.custom-system-config\` file"
