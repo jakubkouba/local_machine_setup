@@ -190,6 +190,27 @@ else
     echo ''
 fi
 
+# check and install Vundle
+cat <<- EOF
+# Checking for Vundle plugin #
+==============================
+
+EOF
+
+if [ -f ~/.vim/bundle/Vundle.vim ]; then
+    echo 'Vundle installed. All good'
+    echo ''
+else
+    echo 'Vundle is not installed'
+    echo 'Installing Vundle with: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`'
+    echo ''
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    echo ''
+    echo '# Vundle installed successfylly'
+    echo ''
+fi
+
+
 echo '# Checking for `.custom-system-config` file'
 echo ''
 
