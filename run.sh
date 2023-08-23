@@ -166,7 +166,7 @@ fi
 cat <<- EOF
 
 # Install fd
-cat <<- EOF
+
 # Checking for bat (cat extension) #
 ==================================
 
