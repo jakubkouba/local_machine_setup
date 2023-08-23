@@ -221,7 +221,7 @@ cat <<- EOF
 
 EOF
 
-if [ -f ~/.vim/bundle/Vundle.vim ]; then
+if [ -d ~/.vim/bundle/Vundle.vim ]; then
     echo 'Vundle installed. All good'
     echo ''
 else
