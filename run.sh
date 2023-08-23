@@ -163,8 +163,32 @@ else
     echo ''
 fi
 
-# fzf
 cat <<- EOF
+
+# Install fd
+cat <<- EOF
+# Checking for bat (cat extension) #
+==================================
+
+EOF
+# test if fd is installed
+which fd &>/dev/null
+if [ $? -eq 0 ]; then
+     echo 'fd program already installed. All good'
+     echo ''
+else
+     echo 'Program fd not installed'
+     echo 'Installing bat with: brew install fd'
+     echo ''
+     brew install fd
+     echo ''
+     echo '# fd installed successfully #'
+     echo '=============================='
+     echo ''
+fi
+
+cat <<- EOF
+
 # Checking for fzf (command line fuzzy finder) #
 ================================================
 
